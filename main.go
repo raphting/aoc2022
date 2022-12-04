@@ -9,4 +9,6 @@ func main() {
 	fmt.Println(day2_2(readDayN(2)))
 	fmt.Println(day3_1(readDayN(3)))
 	fmt.Println(day3_2(readDayN(3)))
+	fmt.Println(day4_1(readDayN(4)))
+	fmt.Println(day4_2(readDayN(4)))
 }
