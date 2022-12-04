@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	type aoc struct {
@@ -31,15 +33,34 @@ func main() {
 		},
 	}
 
+	type result struct {
+		day, part, solution, seq int
+	}
+	results := make(chan result)
+	numRoutines := 0
 	for _, d := range days {
-		input := readDayN(d.day)
-		fmt.Printf("Day %v\n", d.day)
-		if d.task1 != nil {
-			fmt.Printf("Task1: %v\n", d.task1(input))
-		}
+		go func(d aoc, n int) {
+			input := readDayN(d.day)
+			results <- result{day: d.day, part: 1, solution: d.task1(input), seq: n}
+		}(d, numRoutines)
+		numRoutines++
+
 		if d.task2 != nil {
-			fmt.Printf("Task2: %v\n", d.task2(input))
+			go func(d aoc, n int) {
+				input := readDayN(d.day)
+				results <- result{day: d.day, part: 2, solution: d.task2(input), seq: n}
+			}(d, numRoutines)
+			numRoutines++
 		}
-		fmt.Println("-----------------")
+	}
+
+	sortedResults := make([]result, numRoutines)
+	for n := 0; n < numRoutines; n++ {
+		r := <-results
+		sortedResults[r.seq] = r
+	}
+
+	for _, s := range sortedResults {
+		fmt.Printf("Day %v, Part %v: %v\n", s.day, s.part, s.solution)
 	}
 }
