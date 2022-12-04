@@ -31,7 +31,6 @@ func day3_1(input string) int {
 
 func day3_2(input string) int {
 	rows := strings.Split(input, "\n")
-	rows = rows[:len(rows)-1] // remove last blank line
 	score := 0
 	for i := 0; i < len(rows); i += 3 {
 		// cache

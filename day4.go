@@ -7,7 +7,6 @@ import (
 
 func day4_1(input string) int {
 	rows := strings.Split(input, "\n")
-	rows = rows[:len(rows)-1] // remove last blank line
 	type interval struct {
 		from1 int64
 		to1   int64
@@ -49,7 +48,6 @@ func day4_1(input string) int {
 
 func day4_2(input string) int {
 	rows := strings.Split(input, "\n")
-	rows = rows[:len(rows)-1] // remove last blank line
 	type interval struct {
 		from1 int64
 		to1   int64
