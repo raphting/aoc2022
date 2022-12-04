@@ -3,6 +3,7 @@ package main
 import "testing"
 
 func TestDay1_1(t *testing.T) {
+	t.Parallel()
 	input := readTestDayN(1)
 	expected := 24000
 	actual := day1_1(input)
@@ -12,6 +13,7 @@ func TestDay1_1(t *testing.T) {
 }
 
 func TestDay1_2(t *testing.T) {
+	t.Parallel()
 	input := readTestDayN(1)
 	expected := 45000
 	actual := day1_2(input)
