@@ -1,10 +1,11 @@
 package main
 
 import (
+	"strconv"
 	"strings"
 )
 
-func day3_1(input string) int {
+func day3_1(input string) string {
 	rows := strings.Split(input, "\n")
 	score := 0
 	for _, l := range rows {
@@ -26,10 +27,10 @@ func day3_1(input string) int {
 		}
 	}
 
-	return score
+	return strconv.Itoa(score)
 }
 
-func day3_2(input string) int {
+func day3_2(input string) string {
 	rows := strings.Split(input, "\n")
 	score := 0
 	for i := 0; i < len(rows); i += 3 {
@@ -54,7 +55,7 @@ func day3_2(input string) int {
 		}
 	}
 
-	return score
+	return strconv.Itoa(score)
 }
 
 func day3CharToScore(c string) int {

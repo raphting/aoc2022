@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func day4_1(input string) int {
+func day4_1(input string) string {
 	rows := strings.Split(input, "\n")
 	type interval struct {
 		from1 int64
@@ -43,10 +43,10 @@ func day4_1(input string) int {
 		}
 	}
 
-	return result
+	return strconv.Itoa(result)
 }
 
-func day4_2(input string) int {
+func day4_2(input string) string {
 	rows := strings.Split(input, "\n")
 	type interval struct {
 		from1 int64
@@ -93,5 +93,5 @@ func day4_2(input string) int {
 		}
 	}
 
-	return result
+	return strconv.Itoa(result)
 }

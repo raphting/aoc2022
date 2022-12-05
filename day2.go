@@ -1,10 +1,11 @@
 package main
 
 import (
+	"strconv"
 	"strings"
 )
 
-func day2_1(input string) int {
+func day2_1(input string) string {
 	rows := strings.Split(input, "\n")
 	score := 0
 	for _, r := range rows {
@@ -14,7 +15,7 @@ func day2_1(input string) int {
 		}
 		score += day2CalcPoints(game[0], game[1])
 	}
-	return score
+	return strconv.Itoa(score)
 }
 
 func day2CalcPoints(opponent, me string) int {
@@ -65,7 +66,7 @@ func day2CalcPoints(opponent, me string) int {
 	return 0
 }
 
-func day2_2(input string) int {
+func day2_2(input string) string {
 	rows := strings.Split(input, "\n")
 	score := 0
 	for _, r := range rows {
@@ -123,5 +124,5 @@ func day2_2(input string) int {
 		}
 	}
 
-	return score
+	return strconv.Itoa(score)
 }

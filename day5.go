@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
 
-func day5_1(input string) int {
+func day5_1(input string) string {
 	rows := strings.Split(input, "\n")
 
 	// Find block positions
@@ -91,14 +90,14 @@ func day5_1(input string) int {
 		cargoColumn[m.to-1] = append(cargoColumn[m.to-1], take...)
 	}
 
+	result := make([]string, 0)
 	for cnt := range cargoColumn {
-		fmt.Print(cargoColumn[cnt][len(cargoColumn[cnt])-1])
+		result = append(result, cargoColumn[cnt][len(cargoColumn[cnt])-1])
 	}
-	fmt.Println()
-	return 0
+	return strings.Join(result, "")
 }
 
-func day5_2(input string) int {
+func day5_2(input string) string {
 	rows := strings.Split(input, "\n")
 
 	// Find block positions
@@ -177,9 +176,9 @@ func day5_2(input string) int {
 		cargoColumn[m.to-1] = append(cargoColumn[m.to-1], take...)
 	}
 
+	result := make([]string, 0)
 	for cnt := range cargoColumn {
-		fmt.Print(cargoColumn[cnt][len(cargoColumn[cnt])-1])
+		result = append(result, cargoColumn[cnt][len(cargoColumn[cnt])-1])
 	}
-	fmt.Println()
-	return 0
+	return strings.Join(result, "")
 }

@@ -7,7 +7,7 @@ import (
 func main() {
 	type aoc struct {
 		day          int
-		task1, task2 func(string) int
+		task1, task2 func(string) string
 	}
 
 	days := []aoc{
@@ -39,7 +39,8 @@ func main() {
 	}
 
 	type result struct {
-		day, part, solution, seq int
+		day, part, seq int
+		solution       string
 	}
 	results := make(chan result)
 	numRoutines := 0
