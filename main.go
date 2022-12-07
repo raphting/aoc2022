@@ -41,6 +41,11 @@ func main() {
 			task1: day6_1,
 			task2: day6_2,
 		},
+		{
+			day:   7,
+			task1: day7_1,
+			task2: day7_2,
+		},
 	}
 
 	type result struct {
