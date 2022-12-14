@@ -79,6 +79,7 @@ func main() {
 		{
 			day:   14,
 			task1: day14_1,
+			task2: day14_2,
 		},
 	}
 
