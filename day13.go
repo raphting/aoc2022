@@ -1,6 +1,7 @@
 package main
 
 import (
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -32,6 +33,33 @@ func day13_1(input string) string {
 	for cnt, messages := range pairMessages {
 		if isInOrder(messages.a, messages.b) {
 			result += cnt + 1
+		}
+	}
+
+	return strconv.Itoa(result)
+}
+
+func day13_2(input string) string {
+	rows := strings.Split(input, "\n")
+	allMessages := make([]string, 0)
+	for _, r := range rows {
+		if r != "" {
+			allMessages = append(allMessages, r)
+		}
+	}
+	allMessages = append(allMessages, "[[2]]")
+	allMessages = append(allMessages, "[[6]]")
+
+	sort.Slice(allMessages, func(i, j int) bool {
+		_, a := parseMessage(strings.Split(allMessages[i], ""))
+		_, b := parseMessage(strings.Split(allMessages[j], ""))
+		return isInOrder(a, b)
+	})
+
+	result := 1
+	for cnt, a := range allMessages {
+		if a == "[[2]]" || a == "[[6]]" {
+			result *= cnt + 1
 		}
 	}
 
